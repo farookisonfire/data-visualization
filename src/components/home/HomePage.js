@@ -6,7 +6,7 @@ class HomePage extends React.Component {
     return (
       <div className="jumbotron">
         <h1>This is the Home Page</h1>
-        <Link to="about" className="btn btn-primary btn-lg">Learn More</Link>
+        <Link to="about" className="btn btn-primary btn-lg">Jump To Totals</Link>
       </div>
     );
   }
