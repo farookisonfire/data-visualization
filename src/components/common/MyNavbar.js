@@ -19,6 +19,9 @@ class myNavbar extends React.Component {
               </LinkContainer>
               <MenuItem divider />
             </NavDropdown>
+            <LinkContainer to="enrolled">
+              <NavItem eventKey={2}>Enrolled</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar>
     );

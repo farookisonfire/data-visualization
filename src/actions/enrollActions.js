@@ -1,18 +1,13 @@
-import courseApi from '../api/mockCourseApi';
+import enrolledApi from '../api/mockEnrolledApi';
 
-export function nameOfAction() {
-  return { type: 'NAME_OF_ACTION' };
+export function loadEnrolledSuccess(enrolled) {
+  return { type: 'LOAD_ENROLLED_SUCCESS', enrolled };
 }
 
-export function loadCoursesSuccess(courses) {
-  return { type: 'LOAD_COURSES_SUCCESS', courses };
-}
-
-export function loadCourses() {
-  console.log('action fired')
+export function loadEnrolled() {
   return function(dispatch) {
-    return courseApi.getAllCourses().then(courses => {
-      dispatch(loadCoursesSuccess(courses));
+    return enrolledApi.getAllEnrolled().then(enrolled => {
+      dispatch(loadEnrolledSuccess(enrolled));
     }).catch(error => {
       throw(error);
     });
