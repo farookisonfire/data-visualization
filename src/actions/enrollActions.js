@@ -13,3 +13,25 @@ export function loadEnrolled() {
     });
   };
 }
+
+export function fetchEnrolledStart() {
+  return { type: 'FETCH_ENROLLED_START' };
+}
+
+export function fetchEnrolledSuccess(enrolled) {
+  return { type: 'FETCH_ENROLLED_SUCCESS', enrolled };
+}
+
+export function fetchEnrolled() {
+  return function(dispatch) {
+    dispatch(fetchEnrolledStart());
+    console.log('before the fetch')
+    return fetch('localhost:1337/dummy')
+      .then(response => {
+        console.log('fetch has been made, here\'s the response', response);
+        return response.json()})
+      .then(json => {
+        dispatch(fetchEnrolledSuccess(json));
+      });
+  };
+}

@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel open:src lint:watch",
+    "start": "npm-run-all --parallel open:src lint:watch server",
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "server": "nodemon src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,8 @@
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "toastr": "^2.1.2"
+    "toastr": "^2.1.2",
+    "webpack": "^2.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
